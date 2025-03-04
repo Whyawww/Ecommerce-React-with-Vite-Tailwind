@@ -10,7 +10,6 @@ import Banner from './components/Banner/Banner';
 import Footer from './components/Footer/Footer';
 import About from './components/About/About';
 import Popup from './components/Popup/Popup';
-import Ourteam from './components/Ourteam/Ourteam';
 
 const App = () => {
   const [orderPopup, setOrderPopup] = React.useState(false);
@@ -38,7 +37,6 @@ const App = () => {
         <BestSeller handleOrderPopup={handleOrderPopup} />
         <Banner />
         <About />
-        <Ourteam/>
         <Footer />
         <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
       </div>
