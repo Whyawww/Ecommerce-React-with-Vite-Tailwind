@@ -1,20 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; 
+import Slider from 'react-slick';
 import z7 from '../../assets/Hero/iqooz7.png';
 import iqoo11 from '../../assets/Hero/iqoo11.png';
 import iqoo12 from '../../assets/Hero/iqoo12.png';
 import iqoozx from '../../assets/Hero/iqooz7x.png';
 import cool from '../../assets/Hero/pendingin.png';
-import Slider from 'react-slick';
 
 const ImageList = [
   {
-    id: 1,
+    id: 1, 
     img: z7,
     title: "Power Up Your Life Z7",
     description: "FlashCharge 120W, Baterai 5000 mAh, Snapdragon 782",
   },
   {
-    id: 2,
+    id: 2, 
     img: iqoo11,
     title: "Monster Inside For Gaming IQOO11",
     description: "2K 144Hz, AMOLED display, Snapdragon 8 Gen 2",
@@ -26,7 +27,7 @@ const ImageList = [
     description: "Supercomputing Q1, RAM 16 GB + 16 GB, Snapdragon 8 Gen 3",
   },
   {
-    id: 4,
+    id: 4, 
     img: iqoozx,
     title: "Redefining Power IQOO Z7X",
     description: "FlashCharge 80W, Baterai 6000mAh, Penyimpanan 256 GB hingga 1 TB",
@@ -39,7 +40,9 @@ const ImageList = [
   },
 ];
 
-const Hero = ({ handleOrderPopup }) => {
+const Hero = () => { 
+  const navigate = useNavigate(); 
+
   const settings = {
     dots: false,
     arrows: false,
@@ -52,6 +55,10 @@ const Hero = ({ handleOrderPopup }) => {
     cssEase: 'ease-in-out',
     pauseOnHover: false,
     pauseOnFocus: true,
+  };
+
+  const handleOrderNowClick = (productId) => {
+    navigate(`/ProductDetail/${productId}`); 
   };
 
   return (
@@ -75,7 +82,7 @@ const Hero = ({ handleOrderPopup }) => {
                   <div data-aos="fade-up" data-duration="500" data-aos-delay="300">
                     <button
                       className="bg-gradient-to-r from-orange-400 to-orange-600 hover:scale-105 duration-200 text-white py-2 px-4 rounded-full"
-                      onClick={handleOrderPopup}
+                      onClick={() => handleOrderNowClick(item.id)}
                     >
                       Order Now
                     </button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaInstagram, FaYoutube, FaMobileAlt, FaLocationArrow } from 'react-icons/fa';
+import { FaGithub, FaInstagram, FaLinkedinIn, FaMobileAlt, FaLocationArrow } from 'react-icons/fa';
 
 const FooterLinks = [
   {
@@ -8,11 +8,11 @@ const FooterLinks = [
   },
   {
     title: "About",
-    link: "/#about",
+    link: "/about",
   },
   {
     title: "Contact",
-    link: "/#contact",
+    link: "https://www.linkedin.com/in/wahyu-aji-nusantara/",
   },
 ];
 
@@ -21,7 +21,6 @@ const Footer = () => {
     <div className="bg-primary/70 text-black mb-20">
       <div data-aos="zoom-in" className="container">
         <div className="grid md:grid-cols-3 py-5">
-          {/* Copyright */}
           <div className="py-8 px-4">
             <h1 className="sm:text-3xl text-xl font-bold sm:text-left text-justify mb-3 flex items-center gap-3">
               IQOO
@@ -38,6 +37,8 @@ const Footer = () => {
                     <li key={link.title}>
                       <a
                         href={link.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="cursor-pointer hover:text-white hover:translate-x-1 duration-200 text-gray-600"
                       >
                         {link.title}
@@ -51,14 +52,14 @@ const Footer = () => {
             <div>
               <h1 className="text-xl font-bold">Contact:</h1>
               <div className="flex items-center justify-center gap-3 mt-6">
-                <a href="#" aria-label="Instagram">
+                <a href="https://www.instagram.com/jiwhyn?igsh=MTZvNTRja28wNDB2Mg==" aria-label="Instagram">
                   <FaInstagram className="text-3xl" />
                 </a>
-                <a href="#" aria-label="Facebook">
-                  <FaFacebookF className="text-3xl" />
+                <a href="https://github.com/Whyawww" aria-label="Github">
+                  <FaGithub className="text-3xl" />
                 </a>
-                <a href="#" aria-label="YouTube">
-                  <FaYoutube className="text-3xl" />
+                <a href="https://www.linkedin.com/in/wahyu-aji-nusantara/" aria-label="LinkedIn">
+                  <FaLinkedinIn className="text-3xl" />
                 </a>
               </div>
               <div className="mt-6">
@@ -68,7 +69,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3 mt-3">
                   <FaMobileAlt />
-                  <p>+62-2324-4986-886</p>
+                  <p>+62-821-1621-9128</p>
                 </div>
               </div>
             </div>
@@ -80,3 +81,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

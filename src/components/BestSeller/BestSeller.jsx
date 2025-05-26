@@ -1,31 +1,17 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
-import iqooz7 from "../../assets/Hero/iqooz7.png";
-import iqooz9 from "../../assets/Hero/iqooz9.png";
-import cool from "../../assets/Hero/pendingin.png";
+import { useNavigate } from 'react-router-dom'; 
+import { ALL_PRODUCTS_DATA } from '../../Data/products';
 
-const ProductsData = [
-  {
-    id: 1,
-    img: iqooz7,
-    title: "IQOO Z7",
-    description: "iQOO Z7 adalah salah satu smartphone keluaran iQOO yang menonjol dalam performa dan fitur yang ditawarkan.",
-  },
-  {
-    id: 2,
-    img: iqooz9,
-    title: "IQOO Z9",
-    description: "iQOO Z9 merupakan penerus dari seri Z sebelumnya yang membawa peningkatan signifikan dalam berbagai aspek.",
-  },
-  {
-    id: 3,
-    img: cool,
-    title: "COOLER IQOO",
-    description: "iQOO Cooler adalah aksesori pendingin eksternal yang dirancang untuk perangkat smartphone, terutama untuk ponsel iQOO.",
-  },
-];
+const BestSeller = () => { 
+  const navigate = useNavigate(); 
 
-const BestSeller = ({ handleOrderPopup }) => {
+  const bestSellerProducts = ALL_PRODUCTS_DATA.filter(product => product.isBestSeller);
+
+  const handleOrderNowClick = (productId) => {
+    navigate(`/ProductDetail/${productId}`); 
+  };
+
   return (
     <div id="bestseller" className="mt-14 mb-12">
       <div className="container">
@@ -37,7 +23,7 @@ const BestSeller = ({ handleOrderPopup }) => {
         </div>
         {/* Body */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-20 md:gap-5 place-items-center">
-          {ProductsData.map((data) => (
+          {bestSellerProducts.map((data) => (
             <div
               key={data.id}
               data-aos="zoom-in"
@@ -53,17 +39,17 @@ const BestSeller = ({ handleOrderPopup }) => {
                 <div className="mt-4 text-center">
                   {/* Rating */}
                   <div className="flex items-center justify-center gap-1 mb-2">
-                    {[...Array(4)].map((_, i) => (
+                    {[...Array(Math.floor(data.rating))].map((_, i) => (
                       <FaStar key={i} className="text-yellow-500" />
                     ))}
                   </div>
                   <h1 className="text-xl font-bold mb-2">{data.title}</h1>
                   <p className="text-gray-500 group-hover:text-white duration-300 text-sm line-clamp-2 mb-4">
-                    {data.description}
+                    {data.desc || data.description}
                   </p>
                   <button
-                    className="bg-primary hover:scale-105 duration-300 text-black py-1 px-4 rounded-full group-hover:text-white"
-                    onClick={handleOrderPopup}
+                    className="bg-primary hover:scale-105 duration-300 text-black py-1 px-4 rounded-full group-hover:text-white hover:bg-secondary"
+                    onClick={() => handleOrderNowClick(data.id)} 
                   >
                     Order Now
                   </button>
@@ -78,3 +64,4 @@ const BestSeller = ({ handleOrderPopup }) => {
 };
 
 export default BestSeller;
+

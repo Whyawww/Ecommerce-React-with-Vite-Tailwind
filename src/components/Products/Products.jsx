@@ -1,55 +1,50 @@
 import React from 'react';
-import iqooz7 from '../../assets/Hero/iqooz7.png';
-import iqoo11 from '../../assets/Hero/iqoo11.png';
-import iqoo12 from '../../assets/Hero/iqoo12.png';
-import iqoozx from '../../assets/Hero/iqooz7x.png';
-import cool from '../../assets/Hero/pendingin.png';
+import { useNavigate } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import Slider from 'react-slick'; 
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css"; 
+import { ALL_PRODUCTS_DATA } from '../../Data/products'; 
 
-const ProductsData = [
-  {
-    id: 1,
-    img: iqooz7,
-    title: "IQOO Z7",
-    rating: 4.9,
-    color: "orange",
-    aosDelay: "0",
-  },
-  {
-    id: 2,
-    img: iqoo11,
-    title: "IQOO 11",
-    rating: 5.0,
-    color: "gray",
-    aosDelay: "200",
-  },
-  {
-    id: 3,
-    img: iqoo12,
-    title: "IQOO 12",
-    rating: 5.0,
-    color: "white",
-    aosDelay: "400",
-  },
-  {
-    id: 4,
-    img: iqoozx,
-    title: "IQOO Z7X",
-    rating: 4.9,
-    color: "blue",
-    aosDelay: "600",
-  },
-  {
-    id: 5,
-    img: cool,
-    title: "IQOO COOLER",
-    rating: 4.9,
-    color: "yellow",
-    aosDelay: "800",
-  },
-];
+const Products = () => {
+  const navigate = useNavigate();
 
-const Products = ({ handleOrderPopup }) => {
+  const settings = {
+    dots: true, 
+    arrows: false, 
+    infinite: true, 
+    speed: 500, 
+    slidesToShow: 4, 
+    slidesToScroll: 1, 
+    autoplay: true, 
+    autoplaySpeed: 1500, 
+    cssEase: 'linear', 
+    pauseOnHover: true,
+    responsive: [ 
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 480, 
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+    ]
+  };
+
   return (
     <div id="product" className="mt-14 mb-12">
       <div className="container">
@@ -60,29 +55,26 @@ const Products = ({ handleOrderPopup }) => {
           <p data-aos="fade-up" className="text-2xl text-gray-600">TEMUKAN PONSEL YANG TEPAT UNTUK ANDA</p>
         </div>
         {/* Body section */}
-        <div>
-          <div className="grid grid-flow-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 place-items-center gap-5">
-            {/* card */}
-            {ProductsData.map((data) => (
-              <div data-aos="fade-up" data-aos-delay={data.aosDelay} key={data.id} className="space-y-3">
-                <img src={data.img} alt={data.title} className="h-[220px] w-[190px] object-cover rounded-md" />
-                <div>
+        <div className="px-4"> 
+          <Slider {...settings}>
+            {ALL_PRODUCTS_DATA.map((data) => (
+              <div
+                key={data.id}
+                onClick={() => navigate(`/ProductDetail/${data.id}`)}
+                className="space-y-3 cursor-pointer hover:scale-105 transition-transform p-4"
+              >
+                <img src={data.img} alt={data.title} className="h-[220px] w-full object-contain rounded-md mx-auto" />
+                <div className="text-center">
                   <h3 className="font-semibold">{data.title}</h3>
                   <p className="text-sm text-gray-700">{data.color}</p>
-                  <div className="flex items-center gap-1">
+                  <div className="flex items-center justify-center gap-1">
                     <FaStar className="text-primary/70" />
                     <span>{data.rating}</span>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
-          {/* see more button */}
-          <div data-aos="fade-up" className="flex justify-center">
-            <button onClick={handleOrderPopup} className="text-center mt-10 px-6 py-1 bg-primary text-white rounded-md">
-              Pesan
-            </button>
-          </div>
+          </Slider>
         </div>
       </div>
     </div>

@@ -3,12 +3,14 @@ import Logo from '../../assets/iqoologo.png'
 import { IoSearchCircleSharp } from "react-icons/io5"
 import { FaBagShopping } from "react-icons/fa6";
 import { FaCaretDown } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { useCart } from '../CartContext/CartContext'; 
 
 const Menu = [
     {
         id: 1,
         name : "Home",
-        link : "/#home"
+        link : "/"
     },
     {
         id: 2,
@@ -18,7 +20,7 @@ const Menu = [
     {
         id: 3,
         name: "About",
-        link: "/#about"
+        link: "/about" 
     }
 ];
 
@@ -26,17 +28,17 @@ const DropdownLinks = [
     {
         id: 1,
         name: "Z7X",
-        link: "/#zx"
+        link: "/ProductDetail/4"
     },
     {
         id: 2,
         name: "Z9",
-        link: "/#z9"
+        link: "/ProductDetail/6"
     },
     {
         id: 3,
         name: "Cooler",
-        link: "/#cool"
+        link: "/ProductDetail/5"
     },
     {
         id: 4,
@@ -44,52 +46,58 @@ const DropdownLinks = [
         link: "/#bestseller"
     }
 ];
-const Navbar = ({ handleOrderPopup}) => {
+
+const Navbar = () => { 
+  const { cartItems } = useCart(); 
+  const totalItemsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <div className="shadow-md bg-white dark:bg-yellow-800 dark:text-white duration-200 relative z-40">
         {/* atas Navbar */}
         <div className="bg-primary/60 py-3">
-            <div className="container flex justify-content items-center">
+            <div className="container flex justify-between items-center"> 
                 <div>
-                    <a href="#">
+                    <Link to="/"> 
                         <img src={Logo} alt="Logo" 
                         className="w-20 uppercase"/>
-                    </a>
+                    </Link>
                 </div>
 
-                {/*Search bar & button*/}
-                <div className="flex justify-end w-full ">
-                    <div className="rellative group hidden sm:block">
+                {/*Search bar & Cart button*/}
+                <div className="flex items-center gap-4"> 
+                    <div className="relative group hidden sm:block">
                         <input type="text"  
                         placeholder="Cari"
                         className="w-[200px] sm:w-[200px] group-hover:w-[300px] transition-all duration-300 rounded-full border-gray-300 
-                        px-7 py-1 focus:outline-none focus:border-1 focus:border-primary"
+                        px-10 py-1 focus:outline-none focus:border-1 focus:border-primary"
                         />
                         <IoSearchCircleSharp className="text-2xl text-gray-700 group-hover:text-primary absolute 
-                        top-1/2 -translate-y-8 "/>
+                        top-1/2 -translate-y-1/2 left-2" /> 
                     </div>
-                <div>
                     
+                    {/* Cart Button */}
+                    <Link to="/cart" className="relative bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white py-1 px-4 rounded-full
+                    flex items-center gap-3 group border-none focus:outline-none"> 
+                        <FaBagShopping className="text-xl text-white drop-shadow-sm cursor-pointer " />
+                        {totalItemsInCart > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                                {totalItemsInCart}
+                            </span>
+                        )}
+                    </Link>
                 </div>
-                </div>
-                {/* order Button*/}
-                <button onClick={() => handleOrderPopup()}
-                className="bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white py-1 px-4 rounded-full
-                flex items-center gap-3 group">
-                    <span className="group-hover:block hidden transition-all duration-200">Order</span>
-                    <FaBagShopping className="text-xl text-white drop-shadow-sm cursor-pointer"/>
-                </button>
-                
             </div>
-            
         </div>
         {/* bawah Navbar */}
         <div data-aos="fade-up" data-duration="500" data-aos-once="true" className="flex justify-center">
             <ul className="sm:flex hidden items-center gap-4">{
                     Menu.map((data)=>(
                         <li key={data.id}>
-                            <a href={data.link}
-                            className="inline-block px-4 hover:text-primary duration-200">{data.name}</a>
+                            {data.link.startsWith("/#") ? (
+                                <a href={data.link} className="inline-block px-4 hover:text-primary duration-200">{data.name}</a>
+                            ) : (
+                                <Link to={data.link} className="inline-block px-4 hover:text-primary duration-200">{data.name}</Link>
+                            )}
                         </li>
                     ))}
                     {/*dropdown */}
@@ -104,8 +112,11 @@ const Navbar = ({ handleOrderPopup}) => {
                             <ul>
                                 {DropdownLinks.map((data)=>(
                                     <li key={data.id}>
-                                        <a href={data.link}
-                                        className="inline-block w-full rounded-md p-2 hover:bg-primary/50">{data.name}</a>
+                                        {data.link.startsWith("/#") ? (
+                                            <a href={data.link} className="inline-block w-full rounded-md p-2 hover:bg-primary/50">{data.name}</a>
+                                        ) : (
+                                            <Link to={data.link} className="inline-block w-full rounded-md p-2 hover:bg-primary/50">{data.name}</Link>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
