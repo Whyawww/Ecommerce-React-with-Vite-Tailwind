@@ -9,17 +9,11 @@ import BestSeller from './components/BestSeller/BestSeller';
 import Banner from './components/Banner/Banner';
 import Footer from './components/Footer/Footer';
 import About from './components/About/About'; 
-import Popup from './components/Popup/Popup';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import Cart from './components/Cart/Cart';
 import { CartProvider } from './components/CartContext/CartContext';
 
 const App = () => {
-  const [orderPopup, setOrderPopup] = React.useState(false);
-  
-  const handleOrderPopup = () => {
-    setOrderPopup(!orderPopup);
-  };
   
   React.useEffect(() => {
     AOS.init({
@@ -55,7 +49,6 @@ const App = () => {
           </Routes>
           
           <Footer />
-          <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />
         </div>
       </CartProvider>
     </Router>
@@ -63,3 +56,4 @@ const App = () => {
 };
 
 export default App;
+
