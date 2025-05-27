@@ -1,21 +1,21 @@
 IQOO Online Store
 
-IQOO Online Store adalah aplikasi toko online berbasis React untuk menampilkan produk smartphone dan aksesoris merek IQOO. Aplikasi ini memiliki fitur halaman produk, detail produk interaktif, dan sistem keranjang belanja dinamis.
+IQOO Online Store is a React-based online store application to showcase IQOO brand smartphone products and accessories. The app features product pages, interactive product details, and a dynamic shopping cart system.
 
 ---
 
 Fitur
 
-- Halaman daftar produk
-- Detail produk dinamis menggunakan `useParams`
-- Keranjang belanja dengan fitur tambah & kurang jumlah
-- Navigasi menggunakan `React Router`
-- Animasi masuk dengan `AOS`
-- Desain responsive & modern dengan Tailwind CSS
+- Product list page
+- Dynamic product details using `useParams`
+- Shopping cart with add & subtract feature
+- Navigation using `React Router`
+- Login animation with `AOS`
+- Responsive & modern design with Tailwind CSS
 
 ---
 
-Teknologi yang Digunakan
+Technology Used
 - [React.js](https://reactjs.org/)
 - [React Router](https://reactrouter.com/)
 - [Tailwind CSS](https://tailwindcss.com/)
@@ -24,17 +24,17 @@ Teknologi yang Digunakan
 
 ---
 
-Cara Menjalankan Proyek
+How to Run a Project
 
-1. Clone repository ini:
+1. Clone repository:
    ```bash
    https://github.com/Whyawww/Ecommerce-React-with-Vite-Tailwind.git
-2. Masuk ke direktori proyek:
+2. Enter the project directory:
    ```bash
    cd Ecommerce-React-with-Vite-Tailwind
 4. Install dependencies:
    ```bash
    npm install
-6. Jalankan aplikasi:
+6. Run the app:
    ```bash
    npm run dev
