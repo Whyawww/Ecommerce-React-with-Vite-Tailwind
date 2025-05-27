@@ -1,6 +1,6 @@
 IQOO Online Store
 
-IQOO Online Store** adalah aplikasi toko online berbasis React untuk menampilkan produk smartphone dan aksesoris merek IQOO. Aplikasi ini memiliki fitur halaman produk, detail produk interaktif, dan sistem keranjang belanja dinamis.
+IQOO Online Store adalah aplikasi toko online berbasis React untuk menampilkan produk smartphone dan aksesoris merek IQOO. Aplikasi ini memiliki fitur halaman produk, detail produk interaktif, dan sistem keranjang belanja dinamis.
 
 ---
 
