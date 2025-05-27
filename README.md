@@ -30,8 +30,11 @@ Cara Menjalankan Proyek
    ```bash
    https://github.com/Whyawww/Ecommerce-React-with-Vite-Tailwind.git
 2. Masuk ke direktori proyek:
+   ```bash
    cd Ecommerce-React-with-Vite-Tailwind
 4. Install dependencies:
+   ```bash
    npm install
 6. Jalankan aplikasi:
+   ```bash
    npm run dev
