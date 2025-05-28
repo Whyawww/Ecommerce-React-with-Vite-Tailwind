@@ -18,7 +18,7 @@ const FooterLinks = [
 
 const Footer = () => {
   return (
-    <div className="bg-primary/70 text-black mb-20">
+    <div className="bg-primary/70 text-black">
       <div data-aos="zoom-in" className="container">
         <div className="grid md:grid-cols-3 py-5">
           <div className="py-8 px-4">
@@ -74,6 +74,12 @@ const Footer = () => {
               </div>
             </div>
           </div>
+        </div>
+        <hr />
+        <div className="py-5 text-center">
+          <p className="text-xl">
+            &copy; Wahyu Aji Nusantara
+          </p>
         </div>
       </div>
     </div>

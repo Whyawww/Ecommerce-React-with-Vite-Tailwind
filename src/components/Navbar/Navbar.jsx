@@ -1,21 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Logo from '../../assets/iqoologo.png'
 import { IoSearchCircleSharp } from "react-icons/io5"
 import { FaBagShopping } from "react-icons/fa6";
 import { FaCaretDown } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../CartContext/CartContext'; 
 
 const Menu = [
     {
         id: 1,
         name : "Home",
-        link : "/"
+        link : "/" 
     },
     {
         id: 2,
         name: "Product",
-        link: "/#product"
+        link : "/#product" 
     },
     {
         id: 3,
@@ -28,28 +28,44 @@ const DropdownLinks = [
     {
         id: 1,
         name: "Z7X",
-        link: "/ProductDetail/4"
+        link: "/ProductDetail/4" 
     },
     {
         id: 2,
         name: "Z9",
-        link: "/ProductDetail/6"
+        link: "/ProductDetail/6" 
     },
     {
         id: 3,
         name: "Cooler",
-        link: "/ProductDetail/5"
+        link: "/ProductDetail/5" 
     },
     {
         id: 4,
         name: "Best Seller",
-        link: "/#bestseller"
+        link: "/#bestseller" 
     }
 ];
 
 const Navbar = () => { 
   const { cartItems } = useCart(); 
   const totalItemsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      navigate(`/search?q=${searchTerm.trim()}`);
+      setSearchTerm('');
+    } else {
+      navigate(`/search`);
+    }
+  };
 
   return (
     <div className="shadow-md bg-white dark:bg-yellow-800 dark:text-white duration-200 relative z-40">
@@ -65,15 +81,19 @@ const Navbar = () => {
 
                 {/*Search bar & Cart button*/}
                 <div className="flex items-center gap-4"> 
-                    <div className="relative group hidden sm:block">
-                        <input type="text"  
-                        placeholder="Cari"
-                        className="w-[200px] sm:w-[200px] group-hover:w-[300px] transition-all duration-300 rounded-full border-gray-300 
-                        px-10 py-1 focus:outline-none focus:border-1 focus:border-primary"
+                    <form onSubmit={handleSearchSubmit} className="relative group hidden sm:block">
+                        <input 
+                            type="text"  
+                            placeholder="Cari produk"
+                            value={searchTerm}
+                            onChange={handleSearchChange}
+                            className="w-[200px] sm:w-[200px] group-hover:w-[300px] transition-all duration-300 rounded-full border-gray-300 
+                            px-10 py-1 focus:outline-none focus:border-1 focus:border-primary text-black"
                         />
-                        <IoSearchCircleSharp className="text-2xl text-gray-700 group-hover:text-primary absolute 
-                        top-1/2 -translate-y-1/2 left-2" /> 
-                    </div>
+                        <button type="submit" className="absolute top-1/2 -translate-y-1/2 left-2 text-gray-700 group-hover:text-primary">
+                            <IoSearchCircleSharp className="text-2xl" />
+                        </button>
+                    </form>
                     
                     {/* Cart Button */}
                     <Link to="/cart" className="relative bg-gradient-to-r from-primary to-secondary transition-all duration-200 text-white py-1 px-4 rounded-full
