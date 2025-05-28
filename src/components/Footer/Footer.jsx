@@ -78,7 +78,7 @@ const Footer = () => {
         <hr />
         <div className="py-5 text-center">
           <p className="text-xl">
-            &copy; Wahyu Aji Nusantara
+            <a href="https://www.linkedin.com/in/wahyu-aji-nusantara/" target="_blank" rel="noopener noreferrer">&copy; Wahyu Aji Nusantara</a>
           </p>
         </div>
       </div>
