@@ -16,11 +16,12 @@ Fitur
 ---
 
 Technology Used
-- [React.js](https://reactjs.org/)
-- [React Router](https://reactrouter.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [AOS (Animate On Scroll)](https://michalsnik.github.io/aos/)
-- [React Icons](https://react-icons.github.io/react-icons/)
+
+<a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" /></a>
+<a href="https://reactrouter.com/"><img src="https://img.shields.io/badge/React Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white" alt="React Router" /></a>
+<a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" /></a>
+<a href="https://michalsnik.github.io/aos/"><img src="https://img.shields.io/badge/AOS-00B8D9?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCIgdmlld0JveD0iMCAwIDEwIDEwIj4KPHBhdGggZmlsbD0iIzAwMEI4RCIgZD0iTTUgOWwzLjQtMy40YzEuMy0xLjQgMS43LTIuNiAyLjktMy40bC0zLjQtMy40Yy0xLjQtMS43LTIuNi0yLjktMy40LTMuNGMtMS4zLTEuNCAyLjYtMi42IDMuNC0zLjRsMy40IDMuNGMxLjQgMS43IDIuNiAyLjkgMy40IDMuNGwxLjQtMS40Yy0xLjQtMS43LTIuNi0yLjktMy40LTMuNGMtMS4zLTEuNCAyLjYtMi42IDMuNC0zLjRsMy40IDMuNGgxLjRsLTMuNC0zLjRjLTEuNCAxLjcgMi42IDIuOSAzLjQgMy40bDEuNC0xLjQgMy40IDMuNGMxLjQgMS43IDIuNiAyLjkgMy40IDMuNGgxLjRsMy40LTMuNGMtMS4zLTEuNCAyLjYtMi42IDMuNC0zLjRsMy40IDMuNGgxLjRsLTMuNC0zLjRjLTEuNC0xLjcgMi42LTIuOSAzLjQtMy40bDEuNC0xLjQiLz4KPC9zdmc+&logoColor=white" alt="AOS" /></a>
+<a href="https://react-icons.github.io/react-icons/"><img src="https://img.shields.io/badge/React Icons-61DAFB?style=for-the-badge&logo=react-icons&logoColor=white" alt="React Icons" /></a>
 
 ---
 
